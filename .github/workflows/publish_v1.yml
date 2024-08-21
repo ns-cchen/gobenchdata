@@ -23,8 +23,8 @@ jobs:
     - name: docker build
       run: |
         docker build -t ghcr.io/ns-cchen/gobenchdata:latest .
-        docker tag ghcr.io/ns-cchen/gobenchdata:latest ghcr.io/warawara28/gobenchdata:$(git describe --tags)
-        docker tag ghcr.io/ns-cchen/gobenchdata:latest ghcr.io/warawara28/gobenchdata:v1
+        docker tag ghcr.io/ns-cchen/gobenchdata:latest ghcr.io/ns-cchen/gobenchdata:$(git describe --tags)
+        docker tag ghcr.io/ns-cchen/gobenchdata:latest ghcr.io/ns-cchen/gobenchdata:v1
     - name: Publish to GitHub Container Registry
       run: |
         echo ${{ secrets.ACCESS_TOKEN }} | docker login ghcr.io --username $GITHUB_ACTOR --password-stdin
